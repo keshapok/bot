@@ -1,11 +1,11 @@
 using System;
 using System.Drawing;
-using System.Threading;
-using System.Diagnostics;
-using System.Windows.Forms;
 using System.Threading.Tasks;
+using System.Windows.Forms;
+using System.Diagnostics;
+using System.Threading;
 using OpenCvSharp;
-using bot.Properties;
+using bot.Properties; // Если есть Resources.resx
 
 namespace bot
 {
