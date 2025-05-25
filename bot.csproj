@@ -12,36 +12,18 @@
 
     <!-- Отключаем авто-добавление файлов -->
     <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
-    <EnableDefaultEmbeddedResourceItems>false</EnableDefaultEmbeddedResourceItems>
   </PropertyGroup>
 
   <ItemGroup>
-    <!-- Точка входа -->
     <Compile Include="Program.cs" />
-
-    <!-- Формы -->
     <Compile Include="Form1.cs" />
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </Compile>
-
-    <Compile Include="Form2.cs" />
-    <Compile Include="Form2.Designer.cs">
-      <DependentUpon>Form2.cs</DependentUpon>
-    </Compile>
   </ItemGroup>
 
   <ItemGroup>
-    <!-- Ресурсы -->
-    <EmbeddedResource Include="Properties\Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <None Include="Properties\Settings.settings" />
+    <Content Include="Images\templateOfHealthBar.png" />
   </ItemGroup>
 
   <ItemGroup>
-    <!-- Зависимости -->
     <PackageReference Include="OpenCvSharp4" Version="4.7.0.20230112" />
     <PackageReference Include="OpenCvSharp4.Extensions" Version="4.7.0.20230112" />
     <PackageReference Include="System.Configuration.ConfigurationManager" Version="8.0.0" />
