@@ -1,3 +1,7 @@
+using System.ComponentModel;
+using System.Windows.Forms;
+using System.Drawing;
+
 namespace bot
 {
     partial class Form1
