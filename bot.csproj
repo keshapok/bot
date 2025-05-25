@@ -8,6 +8,9 @@
     <IncludeNativeLibrariesForSelfExtract>true</IncludeNativeLibrariesForSelfExtract>
     <RuntimeIdentifier>win-x64</RuntimeIdentifier>
     <EnableCompressionInSingleFile>true</EnableCompressionInSingleFile>
+    <ApplicationIcon>icon.ico</ApplicationIcon>
+
+    <!-- Отключаем авто-добавление файлов -->
     <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
     <EnableDefaultEmbeddedResourceItems>false</EnableDefaultEmbeddedResourceItems>
   </PropertyGroup>
@@ -34,10 +37,11 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="Properties\Settings.settings" />
   </ItemGroup>
 
   <ItemGroup>
-    <!-- Библиотеки -->
+    <!-- Зависимости -->
     <PackageReference Include="OpenCvSharp4" Version="4.7.0.20230112" />
     <PackageReference Include="OpenCvSharp4.Extensions" Version="4.7.0.20230112" />
     <PackageReference Include="System.Configuration.ConfigurationManager" Version="8.0.0" />
