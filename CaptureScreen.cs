@@ -16,14 +16,14 @@ namespace bot
             int width = rect.Width;
             int height = rect.Height;
 
-            using (Bitmap sourceBitmap = new Bitmap(width, height, PixelFormat.Format32bppArgb))
-            using (Graphics g = Graphics.FromImage(sourceBitmap))
+            using (Bitmap sourceImage = new Bitmap(width, height, PixelFormat.Format32bppArgb))
+            using (Graphics g = Graphics.FromImage(sourceImage))
             {
                 IntPtr hdc = g.GetHdc();
                 PrintWindow(handle, hdc, 0);
                 g.ReleaseHdc(hdc);
 
-                return new Bitmap(sourceBitmap);
+                return new Bitmap(sourceImage);
             }
         }
     }
