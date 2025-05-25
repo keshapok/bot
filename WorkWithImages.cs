@@ -1,5 +1,9 @@
+using System.Drawing;
 using OpenCvSharp;
+using System.Diagnostics;
+using System.Threading.Tasks;
 using System.Linq;
+using System.Threading;
 
 namespace bot
 {
