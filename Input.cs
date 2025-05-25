@@ -2,7 +2,8 @@ using System;
 using System.Drawing;
 using System.Runtime.InteropServices;
 using System.Diagnostics;
-using System.Windows;
+using System.Windows.Forms;
+using System.Threading;
 
 namespace bot
 {
