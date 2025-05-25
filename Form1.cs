@@ -5,7 +5,6 @@ using System.Windows.Forms;
 using System.Diagnostics;
 using System.Threading;
 using OpenCvSharp;
-using bot.Properties; // Если есть Resources.resx
 
 namespace bot
 {
