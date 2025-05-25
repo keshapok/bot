@@ -8,15 +8,15 @@
     <IncludeNativeLibrariesForSelfExtract>true</IncludeNativeLibrariesForSelfExtract>
     <RuntimeIdentifier>win-x64</RuntimeIdentifier>
     <EnableCompressionInSingleFile>true</EnableCompressionInSingleFile>
+
+    <!-- Отключаем авто-добавление файлов -->
+    <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
   </PropertyGroup>
 
   <ItemGroup>
-    <!-- Все файлы форм и логики -->
+    <!-- Все наши файлы добавляем вручную -->
     <Compile Include="Program.cs" />
     <Compile Include="Form1.cs" />
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </Compile>
     <Compile Include="GlobalKeyboardHook.cs" />
     <Compile Include="Input.cs" />
     <Compile Include="GetCursor.cs" />
@@ -28,7 +28,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <!-- Шаблон полоски здоровья -->
+    <!-- Шаблон полоски здоровья моба -->
     <Content Include="Images\templateOfHealthBar.png" />
   </ItemGroup>
 
