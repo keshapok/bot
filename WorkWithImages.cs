@@ -1,4 +1,6 @@
+using System;
 using System.Drawing;
+using Point = System.Drawing.Point; // Явно указываем, какой Point использовать
 using OpenCvSharp;
 using System.Diagnostics;
 using System.Threading.Tasks;
