@@ -17,6 +17,7 @@
   <ItemGroup>
     <Compile Include="Program.cs" />
     <Compile Include="Form1.cs" />
+    <Compile Include="GlobalKeyboardHook.cs" />
   </ItemGroup>
 
   <ItemGroup>
