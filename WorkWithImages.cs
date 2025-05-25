@@ -3,7 +3,6 @@ using OpenCvSharp;
 using OpenCvSharp.Extensions;
 using System.Threading.Tasks;
 using System.Threading;
-using Point = System.Drawing.Point;
 
 // Явно указываем, какой Point использовать
 using Point = System.Drawing.Point;
