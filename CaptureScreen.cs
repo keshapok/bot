@@ -1,29 +1,29 @@
 using System;
 using System.Drawing;
+using System.Drawing.Imaging;
 using System.Runtime.InteropServices;
-using System.Windows.Forms;
-
 
 namespace bot
 {
     class CaptureScreen
     {
         [DllImport("user32.dll")]
-        public static extern bool PrintWindow(IntPtr hwnd, IntPtr hdcBlt, uint nFlags);
-        
-        public static Bitmap CaptureWindow(IntPtr hWnd)
+        public static extern bool PrintWindow(IntPtr hWnd, IntPtr hdcBlt, uint nFlags);
+
+        public static Bitmap CaptureWindow(IntPtr handle)
         {
-            Rectangle rect = NativeMethodsForWindow.GetWindowRect(hWnd);
+            var rect = NativeMethodsForWindow.GetWindowRect(handle);
             int width = rect.Width;
             int height = rect.Height;
 
-            using (Bitmap bmp = new Bitmap(width, height))
-            using (Graphics g = Graphics.FromImage(bmp))
+            using (Bitmap sourceBitmap = new Bitmap(width, height, PixelFormat.Format32bppArgb))
+            using (Graphics g = Graphics.FromImage(sourceBitmap))
             {
                 IntPtr hdc = g.GetHdc();
-                PrintWindow(hWnd, hdc, 0);
+                PrintWindow(handle, hdc, 0);
                 g.ReleaseHdc(hdc);
-                return new Bitmap(bmp);
+
+                return new Bitmap(sourceBitmap);
             }
         }
     }
