@@ -8,37 +8,20 @@
     <IncludeNativeLibrariesForSelfExtract>true</IncludeNativeLibrariesForSelfExtract>
     <RuntimeIdentifier>win-x64</RuntimeIdentifier>
     <EnableCompressionInSingleFile>true</EnableCompressionInSingleFile>
-    <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
   </PropertyGroup>
 
   <ItemGroup>
-    <!-- Файлы проекта -->
-    <Compile Include="Program.cs" />
-    <Compile Include="Form1.cs" />
-    <Compile Include="GlobalKeyboardHook.cs" />
-    <Compile Include="Input.cs" />
-    <Compile Include="GetCursor.cs" />
-    <Compile Include="WorkWithProcess.cs" />
-    <Compile Include="NativeMethodsForWindow.cs" />
-    <Compile Include="CaptureScreen.cs" />
-    <Compile Include="CharachterControl.cs" />
-    <Compile Include="WorkWithImages.cs" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <EmbeddedResource Include="Properties\Resources.resx" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <!-- Изображения -->
     <Content Include="Images\templateOfHealthBar.png" />
   </ItemGroup>
 
   <ItemGroup>
-    <!-- Зависимости -->
     <PackageReference Include="OpenCvSharp4" Version="4.7.0.20230112" />
     <PackageReference Include="OpenCvSharp4.Extensions" Version="4.7.0.20230112" />
     <PackageReference Include="System.Configuration.ConfigurationManager" Version="8.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx" />
   </ItemGroup>
 
 </Project>
