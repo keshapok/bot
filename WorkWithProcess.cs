@@ -1,6 +1,8 @@
 using System;
-using System.Diagnostics;
-using System.Threading;
+using System.Drawing;
+using System.Windows.Forms;
+using System.Runtime.InteropServices;
+using OpenCvSharp;
 
 namespace bot
 {
