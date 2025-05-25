@@ -10,16 +10,17 @@
     <RuntimeIdentifier>win-x64</RuntimeIdentifier>
     <EnableCompressionInSingleFile>true</EnableCompressionInSingleFile>
     <ApplicationIcon>icon.ico</ApplicationIcon>
+
+    <!-- Отключаем авто-добавление EmbeddedResource -->
+    <EnableDefaultEmbeddedResourceItems>false</EnableDefaultEmbeddedResourceItems>
   </PropertyGroup>
 
   <ItemGroup>
-    <!-- Ресурсы -->
+    <!-- Явно указываем ресурсы -->
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-
-    <None Include="Properties\Settings.settings" />
   </ItemGroup>
 
   <ItemGroup>
@@ -27,7 +28,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <!-- Современные зависимости -->
     <PackageReference Include="OpenCvSharp4" Version="4.7.0.20230112" />
     <PackageReference Include="OpenCvSharp4.Extensions" Version="4.7.0.20230112" />
     <PackageReference Include="System.Configuration.ConfigurationManager" Version="8.0.0" />
