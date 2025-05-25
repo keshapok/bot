@@ -4,7 +4,6 @@ using System.Diagnostics;
 using System.Drawing;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using bot.Properties;
 
 namespace bot
 {
@@ -74,7 +73,10 @@ namespace bot
                             CharachterControl.TryToAttackMob();
                         }
 
-                        if (WorkWithImages.IsImageMatchWithTemplate(Direct3DCapture.CaptureWindow(gameProcess.MainWindowHandle), template))
+                        // Замена Direct3DCapture на GDI-захват
+                        var currentScreen = WorkWithImages.BringProcessToFrontAndCaptureGDIWindow(gameProcess);
+
+                        if (WorkWithImages.IsImageMatchWithTemplate(currentScreen, template))
                         {
                             int counter = 0;
                             CharachterControl.AttackMobAndWait(1);
@@ -82,7 +84,8 @@ namespace bot
 
                             try
                             {
-                                while (WorkWithImages.IsImageMatchWithTemplate(Direct3DCapture.CaptureWindow(gameProcess.MainWindowHandle), template))
+                                while (WorkWithImages.IsImageMatchWithTemplate(
+                                        WorkWithImages.BringProcessToFrontAndCaptureGDIWindow(gameProcess), template))
                                 {
                                     CharachterControl.AttackMobAndWait(1);
                                     Thread.Sleep(1010);
