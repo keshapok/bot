@@ -1,9 +1,11 @@
 using System;
-using System.Drawing;              // Для Bitmap
-using System.Threading;            // Для Thread.Sleep
-using System.Diagnostics;          // Для Process
-using OpenCvSharp;                 // Для работы с изображениями через OpenCV
-using bot.Properties;             // Если вы используете Settings.resources
+using System.Drawing;
+using System.Diagnostics;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using System.Threading;
+using OpenCvSharp;
+using bot.Properties;
 
 namespace bot
 {
