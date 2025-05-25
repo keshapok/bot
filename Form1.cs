@@ -1,9 +1,9 @@
 using System;
 using System.Drawing;
-using System.Diagnostics;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using System.Threading;
+using System.Diagnostics;
+using System.Windows.Forms;
+using System.Threading.Tasks;
 using OpenCvSharp;
 using bot.Properties;
 
@@ -17,20 +17,22 @@ namespace bot
         public Form1()
         {
             InitializeComponent();
-            HookStopKey();
+            SetupStopKey();
         }
 
-        private void HookStopKey()
+        private void SetupStopKey()
         {
             _globalKeyboardHook = new GlobalKeyboardHook();
             _globalKeyboardHook.HookedKeys.Add(Keys.F12);
-            _globalKeyboardHook.KeyUp += (sender, args) =>
-            {
-                _botRunning = !_botRunning;
-                Console.WriteLine(_botRunning ? "Бот возобновил работу" : "Бот остановлен");
-                args.Handled = true;
-            };
+            _globalKeyboardHook.KeyUp += ToggleBot;
             _globalKeyboardHook.Hook();
+        }
+
+        private void ToggleBot(object sender, KeyEventArgs e)
+        {
+            _botRunning = !_botRunning;
+            Console.WriteLine(_botRunning ? "Бот возобновил работу" : "Бот остановлен");
+            e.Handled = true;
         }
 
         private async void StartBotButton_Click(object sender, EventArgs e)
@@ -41,7 +43,7 @@ namespace bot
 
         private void BotLoop()
         {
-            Process[] processes = Process.GetProcessesByName("rf_online.bin");
+            var processes = Process.GetProcessesByName("rf_online.bin");
 
             if (processes.Length == 0) return;
 
@@ -54,12 +56,10 @@ namespace bot
 
                 try
                 {
-                    // Захват экрана
                     var img1 = WorkWithImages.BringProcessToFrontAndCaptureGDIWindow(gameProcess);
                     Thread.Sleep(500);
                     var img2 = WorkWithImages.BringProcessToFrontAndCaptureGDIWindow(gameProcess);
 
-                    // Поиск изменений
                     var diff = WorkWithImages.GetDiffInTwoImages(img1, img2);
                     var contours = WorkWithImages.FindCountoursAtImage(diff);
                     var point = WorkWithImages.GetBiggestCountourCoordinates(contours);
@@ -90,24 +90,14 @@ namespace bot
 
         private void InitializeComponent()
         {
-            this.SuspendLayout();
-
-            // Простая кнопка без дизайнеров
-            var button = new Button
-            {
-                Text = "Запустить бота",
-                Width = 200,
-                Height = 40,
-                Location = new System.Drawing.Point(50, 50)
-            };
-            button.Click += StartBotButton_Click;
-
-            this.Controls.Add(button);
             this.Width = 300;
             this.Height = 150;
             this.Text = "RF-Bot";
 
-            this.ResumeLayout(false);
+            var button = new Button { Text = "Запустить бота", Dock = DockStyle.Fill };
+            button.Click += StartBotButton_Click;
+
+            this.Controls.Add(button);
         }
     }
 }
