@@ -1,18 +1,16 @@
-using System;
 using System.Drawing;
-using System.Drawing.Imaging;
 using System.Runtime.InteropServices;
 
 namespace bot
 {
     class CaptureScreen
     {
-        [DllImport("user32.dll")]
-        public static extern bool PrintWindow(IntPtr hWnd, IntPtr hdcBlt, uint nFlags);
+        [DllImport("user32.dll", SetLastError = true)]
+        private static extern bool PrintWindow(IntPtr hwnd, IntPtr hdcBlt, uint nFlags);
 
         public static Bitmap CaptureWindow(IntPtr handle)
         {
-            var rect = NativeMethodsForWindow.GetWindowRect(handle);
+            Rectangle rect = NativeMethodsForWindow.GetWindowRect(handle);
             int width = rect.Width;
             int height = rect.Height;
 
