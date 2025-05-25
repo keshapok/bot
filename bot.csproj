@@ -26,7 +26,6 @@
 
   <ItemGroup>
     <Content Include="Images\templateOfHealthBar.png" />
-  </Content>
   </ItemGroup>
 
   <ItemGroup>
