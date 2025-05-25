@@ -11,6 +11,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <!-- Все файлы форм и логики -->
     <Compile Include="Program.cs" />
     <Compile Include="Form1.cs" />
     <Compile Include="Form1.Designer.cs">
@@ -27,11 +28,12 @@
   </ItemGroup>
 
   <ItemGroup>
+    <!-- Шаблон полоски здоровья -->
     <Content Include="Images\templateOfHealthBar.png" />
-  </Content>
   </ItemGroup>
 
   <ItemGroup>
+    <!-- Зависимости -->
     <PackageReference Include="OpenCvSharp4" Version="4.7.0.20230112" />
     <PackageReference Include="OpenCvSharp4.Extensions" Version="4.7.0.20230112" />
     <PackageReference Include="System.Configuration.ConfigurationManager" Version="8.0.0" />
