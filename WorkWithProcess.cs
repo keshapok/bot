@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
 using OpenCvSharp;
+using System.Threading;
 
 namespace bot
 {
