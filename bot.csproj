@@ -14,6 +14,12 @@
     <!-- Отключаем автозагрузку ресурсов -->
     <EnableDefaultEmbeddedResourceItems>false</EnableDefaultEmbeddedResourceItems>
   </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="Form2.cs" />
+    <Compile Include="Form2.Designer.cs">
+      <DependentUpon>Form2.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
 
   <ItemGroup>
     <!-- Явно указываем ресурсы -->
